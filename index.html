@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чмэк</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="home" id="home">
+        <header>
+            <nav>
+                <a href="#home">Главная</a>
+                <a href="#memories">Воспоминания</a>
+                <a href="#gallery">Галерея</a>
+                <a href="#secret">Секрет</a>
+                <a href="#letter" class="letter">Письмо</a>
+            </nav>
+        </header>
+            <div class="overlay"></div>
+            <div class="text">
+                <h1>MaGirl and MaBoy</h1>
+                <div class="line"></div>
+                <p>Ето небольшое путешествие по нашим теплым моментам.</p>
+                <a href="#memories"><button>Начать</button></a>
+            </div>
+        <img src="ми.jpg">
+        <div class="date">
+            🧡02.02.2025🤍
+        </div>
+    </div>
+    <div class="dividers"></div>
+    <section class="memories" id="memories">
+        <h2>Воспоминания</h2>
+        <p>Давай вспомним наши самые важные моменты.</p>
+        <div class="memory-card">
+            <img src="first.jpg">
+            <div class="memory-text">
+                <h3>29.10.2023</h3>
+                <p>День, когда все только начало зарождаться.</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="memory-card reverse">
+            <img src="second.jpg">
+            <div class="memory-text">
+                <h3>20.02.2025</h3>
+                <p>А это наш разговор, после первого поцелуя, пупупу...</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="memory-card">
+            <img src="tri.jpg">
+            <div class="memory-text">
+                <h3>03.08.2025</h3>
+                <p>А это наша первая совместная поездка, круто было тогда!!!</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="memory-card reverse">
+            <img src="homes.jpg">
+            <div class="memory-text">
+                <h3>31.01.2026</h3>
+                <p>Ну и куда же без первой ночевки, кстати совместно с первым годом наших отношений.</p>
+            </div>
+        </div>
+        <a href="#gallery" class="next-button">
+            Продолжить
+        </a>
+    </section>
+    <div class="dividers"></div>
+    <section class="gallery" id="gallery">
+        <h2>Галерея</h2>
+        <p>Наша с тобой галлерея</p>
+        <div class="gallery-grid">
+            <div class="photo">
+                <img src="winter.jpg" onclick="openPhoto(this)">
+                <p>Это мы с тобой зимой</p>
+            </div>
+            <div class="photo">
+                <img src="makeup.jpg" onclick="openPhoto(this)">
+                <p>Это ты меня намакияжила</p>
+            </div>
+            <div class="photo">
+                <img src="mask.jpg" onclick="openPhoto(this)">
+                <p>Это масочки</p>
+            </div>
+            <div class="photo">
+                <img src="jazz.jpg" onclick="openPhoto(this)">
+                <P>Это мы слушаем джазик</P>
+            </div>
+            <div class="photo">
+                <img src="ng.jpg" onclick="openPhoto(this)">
+                <p>Это наш первый новый год</p>
+            </div>
+            <div class="photo">
+                <img src="mirror.jpg" onclick="openPhoto(this)">
+                <p>Это мы у тебя дома круто сфотались</p>
+            </div>
+            <div class="photo">
+                <img src="hzcho.jpg" onclick="openPhoto(this)">
+                <p>Это я тебе цветочки дарил</p>
+            </div>
+            <div class="photo">
+                <img src="smile.jpg" onclick="openPhoto(this)">
+                <p>Это мы смешные с тобой</p>
+            </div>
+            <div class="photo">
+                <img src="teatr.jpg" onclick="openPhoto(this)">
+                <p>Это мы просвещаемся</p>
+            </div>
+            <div class="photo">
+                <img src="cafe.jpg" onclick="openPhoto(this)">
+                <P>Это мы с тобой кушать на мое др ходили</P>
+            </div>
+        </div>
+        <a href="#secret" class="next-button">
+            Перейти к секретному блоку
+        </a>
+    </section>
+    <div class="viewer" id="viewer">
+        <span class="close" onclick="closePhoto()">x</span>
+        <button class="prev" onclick="prevPhoto()"><</button>
+        <img id="bigPhoto">
+        <button class="next" onclick="nextPhoto()">></button>
+    </div>
+    <script>
+    let photos = [
+    "winter.jpg",
+    "makeup.jpg",
+    "mask.jpg",
+    "jazz.jpg",
+    "ng.jpg",
+    "mirror.jpg",
+    "hzcho.jpg",
+    "smile.jpg",
+    "teatr.jpg",
+    "cafe.jpg"
+];
+let currentPhoto = 0;
+function openPhoto(photo) {
+    let viewer = document.getElementById("viewer");
+    let bigPhoto = document.getElementById("bigPhoto");
+    currentPhoto = photos.indexOf(photo.src.split("/").pop());
+    bigPhoto.src = photo.src;
+    viewer.style.display = "flex";
+    setTimeout(() => {
+        viewer.classList.add("active");
+    }, 10);
+}
+function closePhoto() {
+    let viewer = document.getElementById("viewer");
+    viewer.style.display = "none";
+    viewer.classList.remove("active");
+}
+function nextPhoto() {
+    currentPhoto++;
+    if (currentPhoto >= photos.length) {
+        currentPhoto = 0;
+    }
+    document.getElementById("bigPhoto").src = photos[currentPhoto];
+}
+function prevPhoto() {
+    currentPhoto--;
+    if (currentPhoto < 0) {
+        currentPhoto = photos.length - 1;
+    }
+    document.getElementById("bigPhoto").src = photos[currentPhoto];
+}
+let lastScroll = 0;
+window.addEventListener("scroll", function () {
+    const header = document.querySelector("header");
+    let currentScroll = window.pageYOffset;
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add("hide");
+    } else {
+        header.classList.remove("hide");
+    }
+    lastScroll = currentScroll;
+});
+function openLetter() {
+    const paper = document.getElementById("letterPaper");
+    const envelope = document.getElementById("envelope");
+    envelope.style.display = "none";
+    paper.style.display = "block";
+    setTimeout(() => {
+        paper.classList.add("show");
+    }, 10);
+}
+    </script>
+    <div class="dividers"></div>
+    <section class="secret" id="secret">
+        <h2>Секретный блок</h2>
+        <p>Это маленькая часть того, что я в тебе люблю.</p>
+        <div class="flower">
+            <div class="center">
+                <img src="nas.jpg">
+            </div>
+            <div class="petal petal1">
+                <h3>Твоя улыбочка</h3>
+                <p>Я люблю твою улыбочку, которая заставляет меня так же улыбаться.</p>
+            </div>
+            <div class="petal petal2">
+                <h3>Твоя красота</h3>
+                <p>Твой носик, твое личико, твои глазки это то, о чем мечтает каждая девушка.</p>
+            </div>
+            <div class="petal petal3">
+                <h3>Твой характер</h3>
+                <p>Я люблю тебя такой, какая ты есть, несмотря ни на что.</p>
+            </div>
+            <div class="petal petal4">
+                <h3>Наши моменты</h3>
+                <p>Я люблю абсолютно каждый момент, проведенный вместе с тобой</p>
+            </div>
+            <div class="petal petal5">
+                <h3>Твоя фигура</h3>
+                <p>Твоя фигура это просто идеал, она у тебя самая красивая.</p>
+            </div>
+            <div class="petal petal6">
+                <h3>Ты</h3>
+                <p>И конечно же я люблю тебя за все, какой бы ты не была, ты моя любимая девушка.</p>
+            </div>
+        </div>
+        <a href="#letter" class="next-button">
+            Прочитать письмо
+        </a>
+        <div class="dividers"></div>
+    </section>
+    <section class="letter-section" id="letter">
+    <h2>Письмо</h2>
+    <p class="letter-subtitle">
+        Осталось открыть только одну вещь...
+    </p>
+    <div class="envelope" id="envelope" onclick="openLetter()">
+        <div class="envelope-top"></div>
+        <div class="envelope-body">
+            <span>Нажми, чтобы открыть</span>
+        </div>
+    </div>
+    <div class="letter-paper" id="letterPaper">
+        <h3>Моей любимой🧡</h3>
+        <p>Если ты сейчас читаешь это письмо, значит ты уже исследовала этот маленький сайт. Я знаю, что, пока ты смотрела фотографии, вспоминала наши моменты и читала всё, что я здесь написал, ты улыбалась)
+
+Когда я начал делать этот сайт, я хотел не просто показать фотографии или написать красивые слова. Мне хотелось создать сайт, где останется частичка нас. Место, в которое мы сможем вернуться в любое время и вспомнить капельку того, с чего всё начиналось.
+
+Спасибо тебе за каждую улыбку, за каждый разговор, за каждое объятие и за каждый момент, который мы прожили вместе. Благодаря тебе каждый этот момент является особенным.
+
+Ты стала человеком, рядом с которым я абсолютно всегда чувствую себя счастливым. С тобой мне хочется строить планы, смеяться, гулять, путешествовать и просто жить.
+
+Я знаю, что впереди на ждёт еще много много всего и знаю, что впереди будет еще кучааа воспоминаний и куча событий, которые мы проживем вместе с тобой.
+
+Спасибо, что однажды ты появилась в моей жизни и, надеюсь, никуда из нее не уйдешь.
+
+Я люблю тебя, безумно сильно люблю, моя хорошая❤️❤️❤️</p>
+    </div>
+    <a href="#end" class="next-button">
+            В конец
+        </a>
+</section>
+<div class="dividers"></div>
+<section class="ending" id="end">
+    <h2>Спасибо за все</h2>
+    <div class="heart">
+        🧡🤍
+    </div>
+    <div class="date-end">
+        02.02.2025 — ∞
+    </div>
+</section>
+</body>
+</html> 

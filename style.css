@@ -644,7 +644,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Меню */
+/* ===== МЕНЮ ===== */
 
 header {
     width: 100%;
@@ -652,7 +652,6 @@ header {
     left: 0;
     transform: none;
     padding: 0 10px;
-    box-sizing: border-box;
 }
 
 nav {
@@ -660,48 +659,56 @@ nav {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     padding: 12px;
 }
 
 nav a {
-    font-size: 15px;
+    font-size: 13px;
 }
 
-/* Главная */
+/* ===== ГЛАВНАЯ ===== */
 
 .home {
-    flex-direction: column-reverse;
+    flex-direction: column;
     height: auto;
-    padding: 120px 20px 60px;
+    padding: 120px 20px 50px;
     gap: 30px;
 }
 
 .text {
+    width: 100%;
     max-width: 100%;
     text-align: center;
+    top: 0;
+    left: 0;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.text p {
+    font-size: 18px;
 }
 
 .line {
     margin: 20px auto;
 }
 
-h1 {
-    font-size: 42px;
-}
-
 .home img {
     width: 90%;
+    max-width: 350px;
     height: auto;
 }
 
 .date {
     position: static;
     transform: none;
-    margin-top: 20px;
+    font-size: 16px;
 }
 
-/* Общие секции */
+/* ===== СЕКЦИИ ===== */
 
 .memories,
 .gallery,
@@ -714,17 +721,16 @@ h1 {
 .memories h2,
 .gallery h2,
 .secret h2,
-.letter-section h2,
-.ending h2 {
-    font-size: 40px;
+.letter-section h2 {
+    font-size: 42px;
 }
 
-/* Воспоминания */
+/* ===== ВОСПОМИНАНИЯ ===== */
 
 .memory-card,
-.reverse {
+.memory-card.reverse {
     flex-direction: column;
-    text-align: center;
+    gap: 25px;
     padding: 25px;
 }
 
@@ -737,46 +743,134 @@ h1 {
     max-width: 100%;
 }
 
-/* Галерея */
+.memory-text h3 {
+    font-size: 28px;
+}
+
+.memory-text p {
+    font-size: 17px;
+}
+
+/* ===== ГАЛЕРЕЯ ===== */
 
 .gallery-grid {
     grid-template-columns: 1fr;
 }
 
-/* Карточки секрета */
+.photo p {
+    transform: translateY(0);
+    font-size: 16px;
+}
 
-.secret-cards,
-.cards {
+/* ===== ПРОСМОТР ФОТО ===== */
+
+.viewer img {
+    max-width: 90%;
+    max-height: 70%;
+}
+
+.viewer span {
+    right: 20px;
+    top: 20px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* ===== СЕКРЕТНЫЙ ЦВЕТОК ===== */
+
+.flower {
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    align-items: center;
 }
 
-.secret-card,
-.card {
-    width: 100%;
+.center {
+    position: static;
+    transform: none;
+    order: -1;
+}
+
+.center img {
+    width: 80%;
+    max-width: 300px;
+}
+
+.petal,
+.petal1,
+.petal2,
+.petal3,
+.petal4,
+.petal5,
+.petal6 {
+    position: static;
+    width: auto;
     max-width: 340px;
-    margin: 0;
+    margin: auto;
+    transform: none;
 }
 
-/* Письмо */
-
-.letter {
-    width: 100%;
+.petal h3 {
+    font-size: 28px;
 }
 
-.letter-box {
-    width: 100%;
+.petal p {
+    font-size: 16px;
+}
+
+/* ===== ПИСЬМО ===== */
+
+.envelope {
+    width: 90%;
+}
+
+.envelope-top {
+    border-left-width: 45%;
+    border-right-width: 45%;
+}
+
+.envelope-body {
+    font-size: 20px;
+}
+
+.letter-paper {
     padding: 25px;
-    box-sizing: border-box;
 }
 
-/* Кнопки */
+.letter-paper h3 {
+    font-size: 32px;
+}
+
+.letter-paper p {
+    font-size: 18px;
+}
+
+/* ===== КНОПКИ ===== */
 
 button,
 .next-button {
-    width: 100%;
+    width: 90%;
     max-width: 320px;
 }
+
+/* ===== ФИНАЛ ===== */
+
+.ending h2 {
+    font-size: 55px;
+}
+
+.heart {
+    font-size: 50px;
+}
+
+.date-end {
+    font-size: 18px;
+}
+
 }
